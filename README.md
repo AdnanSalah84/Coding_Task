@@ -1,11 +1,11 @@
-# Prerequisites
+## Prerequisites
 
 To install NodeJs and Angular on your local system.
 
-For NodeJs:
+### For NodeJs:
 https://nodejs.org/en/
 
-For Angular CLI:
+### For Angular CLI:
 Open your terminal window and run the following command:
 
 npm install -g @angular/cli

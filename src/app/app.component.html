@@ -1,0 +1,70 @@
+
+<p-sidebar [(visible)]="display" styleClass="p-sidebar-md" position="right">
+    <div class="grid p-fluid">
+      <div class="col-12">
+        <h5>Nuclide Name</h5>
+        <input type="text" pInputText [(ngModel)]="nuclideName">
+      </div>
+    </div>
+
+    <div class="grid p-fluid">
+      <div class="col-12">
+        <h5>Half-life</h5>
+        <input type="text" pInputText [(ngModel)]="halfLife">
+      </div>
+    </div>
+
+    <div class="grid p-fluid">
+      <div class="col-12">
+      <h5>Activity</h5>
+      <input type="text" pInputText [(ngModel)]="startActivity">
+    </div>
+  </div>
+
+  <br>
+
+  <p-button label="Add to table" (click)="addNewNuclide()" style="margin-right: 25px;"></p-button>
+  <p-button label="Cancel" (click)="display = false"></p-button>
+
+</p-sidebar>
+<p-toolbar>
+<h1>Nuclide Decay Calculator</h1>
+</p-toolbar>
+
+<br>
+<p-table [value]="nuclides" responsiveLayout="scroll">
+  <ng-template pTemplate="header">
+      <tr>
+          <th>Nuclide name</th>
+          <th>Half-life</th>
+          <th>Start activity</th>
+          <th>@ 1 Day</th>
+          <th>@ 10 Day</th>
+          <th>@ 100 Day</th>
+          <th>@ 1000 Day</th>
+          <th> Days < 1</th>
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-nuclide>
+      <tr>
+          <td>{{nuclide.nuclideName}}</td>
+          <td>{{nuclide.halfLife}}</td>
+          <td>{{nuclide.startActivity}}</td>
+          <td>{{nuclide.oneDay}}</td>
+          <td>{{nuclide.tenDay}}</td>
+          <td>{{nuclide.hundredDay}}</td>
+          <td>{{nuclide.thousandDay}}</td>
+          <td>{{nuclide.dayLessThanone}}</td>
+      </tr>
+  </ng-template>
+</p-table>
+
+<br>
+
+<p>Time for total activity to decay: {{totalActivity}} days</p>
+
+<br>
+<p-button label="Add New Nuclide" (click)="display = true"></p-button>
+
+<!-- <br><br>
+<p-button label="BinarySearch Test" (click)="binarySearchTest()"></p-button> -->
